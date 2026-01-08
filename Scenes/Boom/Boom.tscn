@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgbabbux5pxkh"]
+
+[ext_resource type="Texture2D" uid="uid://bj31yhuftnbyi" path="res://assets/spritesheets/EXPLOSION_ANIMATION.png" id="1_81430"]
+[ext_resource type="Script" uid="uid://k4o5a0ibspbd" path="res://Scenes/Boom/Boom.gd" id="1_fubsu"]
+[ext_resource type="AudioStream" uid="uid://b7p2jvkq6ojqd" path="res://assets/sounds/sfx_exp_medium4.wav" id="3_prffd"]
+
+[sub_resource type="Animation" id="Animation_stcpk"]
+resource_name = "boom"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 1.5,
+"start_offset": 0.0,
+"stream": ExtResource("3_prffd")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_ynbs5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_33imn"]
+_data = {
+&"RESET": SubResource("Animation_ynbs5"),
+&"boom": SubResource("Animation_stcpk")
+}
+
+[node name="Boom" type="Node2D"]
+script = ExtResource("1_fubsu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_81430")
+hframes = 6
+frame = 1
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_33imn")
+}
+autoplay = "boom"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

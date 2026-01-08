@@ -1,0 +1,83 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvtginoegn8ey"]
+
+[ext_resource type="Script" uid="uid://cby0vodtnmtog" path="res://Scenes/GameUi/GameUi.gd" id="1_anb74"]
+[ext_resource type="LabelSettings" uid="uid://rqw8bae54mjb" path="res://Resources/lg_d_blue_32.tres" id="1_mb7aw"]
+[ext_resource type="LabelSettings" uid="uid://kia12kj3mcg4" path="res://Resources/lg_l_green_48.tres" id="3_anolp"]
+
+[node name="GameUi" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_anb74")
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ScoreLabel" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "0 / 0000"
+label_settings = ExtResource("1_mb7aw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "0s"
+label_settings = ExtResource("1_mb7aw")
+vertical_alignment = 1
+
+[node name="ExitLabel" type="Label" parent="MC"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "GO TO EXIT"
+label_settings = ExtResource("3_anolp")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0.41960785, 0.42745098, 0.7294118)
+
+[node name="GoLabel" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -11.5
+offset_right = 46.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "EXITED"
+label_settings = ExtResource("3_anolp")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3i4bjraychuv"]
+
+[ext_resource type="Script" uid="uid://bf4kpumpev0tl" path="res://Scenes/Player/Player.gd" id="1_ft8w5"]
+[ext_resource type="Texture2D" uid="uid://ds0j36lvrdnon" path="res://assets/images/survivor1_gun.png" id="1_s0eop"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ft8w5"]
+radius = 11.0
+height = 40.0
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_ft8w5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, 0)
+texture = ExtResource("1_s0eop")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ft8w5")

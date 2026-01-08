@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://bni0614jjmhm0"]
+
+[ext_resource type="LabelSettings" uid="uid://o587wb3hvjnh" path="res://Resources/lg_d_orange_64.tres" id="1_pbw6q"]
+[ext_resource type="Script" uid="uid://o0apa1pdo7wg" path="res://Scenes/Main/Main.gd" id="1_w20t6"]
+[ext_resource type="Texture2D" uid="uid://bugehmaqqtied" path="res://assets/images/pill1.png" id="2_v1gob"]
+[ext_resource type="Texture2D" uid="uid://cn1s01old0joy" path="res://assets/images/pill2.png" id="3_jw32o"]
+[ext_resource type="Texture2D" uid="uid://du0a6fohr2nqm" path="res://assets/images/soldier1_gun.png" id="4_50glp"]
+[ext_resource type="Texture2D" uid="uid://ds0j36lvrdnon" path="res://assets/images/survivor1_gun.png" id="5_vy5pj"]
+
+[node name="Main" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w20t6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.23543617, 0.5575113, 0.60496277, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "PRESS SPACE TO PLAY"
+label_settings = ExtResource("1_pbw6q")
+
+[node name="Pill1" type="Sprite2D" parent="."]
+position = Vector2(234, 150)
+rotation = -0.091597974
+texture = ExtResource("2_v1gob")
+
+[node name="Pill2" type="Sprite2D" parent="."]
+position = Vector2(874, 481)
+rotation = -0.26762363
+texture = ExtResource("3_jw32o")
+
+[node name="Soldier1Gun" type="Sprite2D" parent="."]
+position = Vector2(240, 483)
+rotation = -0.36081302
+texture = ExtResource("4_50glp")
+
+[node name="Survivor1Gun" type="Sprite2D" parent="."]
+position = Vector2(863, 168)
+rotation = -2.5395885
+texture = ExtResource("5_vy5pj")
